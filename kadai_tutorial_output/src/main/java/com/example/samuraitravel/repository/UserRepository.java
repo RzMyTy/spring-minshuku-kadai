@@ -1,0 +1,16 @@
+package com.example.samuraitravel.repository;
+
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.samuraitravel.entity.User;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+	public User findByEmail(String emial); //メールアドレスでユーザーを検索するメソッド
+	public Page<User> findByNameLikeOrFuriganaLike(String maneKeyword, String furiganaKeyword, Pageable pageable);
+}
+
+
